@@ -46,7 +46,7 @@ export default {
   name: "EventItem",
   data() {
     return {
-      event: { name: '', description: '', start_date: '', end_date: '' },
+      event: { name: '', description: '', start_date: '', end_date: '' , gmt: ''},
       events: []
     }
   },
