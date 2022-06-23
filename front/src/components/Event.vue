@@ -1,53 +1,54 @@
 <template>
   <div class="event_form">
     <div class="form-group">
-      <input class="form-control" :maxlength='maxCharacter' placeholder="Event Name" v-model="event.nomEvent">
+      <input class="event_name" data-test="event_name" :maxlength='maxCharacter' placeholder="Event Name" v-model="event.nomEvent">
     </div>
 
     <div class="form-group">
-      <textarea class="form-control" placeholder="Event Description" v-model="event.descEvent"></textarea>
+      <textarea class="event_desc" data-test="event_desc" placeholder="Event Description" v-model="event.descEvent"></textarea>
     </div>
 
     <div class="form-group">
-      <input type="datetime-local" class="form-control" placeholder="Start Date" v-model="event.startDate">
+      <input type="datetime-local" class="event_start" data-test="event_start" placeholder="Start Date" v-model="event.startDate">
     </div>
 
     <div class="form-group">
-    <input type="datetime-local" class="form-control" placeholder="End Date" v-model="event.endDate">
+    <input type="datetime-local" class="form-control" data-test="event_end" placeholder="End Date" v-model="event.endDate">
     </div>
 
     <button class="btn btn-primary" @click="addEvent">Submit</button>
-  </div>
-  <div class="list_events">
-    <a class="list_group_item"
-        v-for="event in events"
-        :key="event.nomEvent"
-    >
-      <div class="event">
-        <h4 class="event_title">
-          {{event.nomEvent}}
-        </h4>
-        <hr>
-        <h4 >
-          Description
-        </h4>
+    <div class="list_events">
+      <a class="list_group_item"
+         v-for="event in events"
+         :key="event.nomEvent"
+      >
+        <div class="event">
+          <h4 class="event_title">
+            {{event.nomEvent}}
+          </h4>
+          <hr>
+          <h4 >
+            Description
+          </h4>
 
-        <p class="event_desc">
-          {{event.descEvent}}
-        </p>
-        <hr>
-        <p>
-          <b>Start</b> : {{event.startDate}}
-        </p>
-        <p>
-          <b>End</b> :  {{event.endDate}}
-        </p>
-        <p class="timezone">
-          <b>UTC</b> : {{(-1*(event.timezone/60))}}
-        </p>
-      </div>
-    </a>
+          <p class="event_desc">
+            {{event.descEvent}}
+          </p>
+          <hr>
+          <p>
+            <b>Start</b> : {{event.startDate}}
+          </p>
+          <p>
+            <b>End</b> :  {{event.endDate}}
+          </p>
+          <p class="timezone">
+            <b>UTC</b> : {{(-1*(event.timezone/60))}}
+          </p>
+        </div>
+      </a>
+    </div>
   </div>
+
 </template>
 
 <script>
